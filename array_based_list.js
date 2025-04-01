@@ -35,6 +35,24 @@ class LinkedList {
     this.size++;
   }
 
+  delete(index) {
+    if (index < 0) {
+      console.log(
+        `Invalid index "${index}" for removing. Should be positive number.`
+      );
+      return;
+    }
+    if (index > this.size) {
+      console.log(
+        `Invalid index "${index}" for removing. Should be less then list length (${this.size}).`
+      );
+      return;
+    }
+
+    this.list.splice(index, 1);
+    this.size--;
+  }
+
   printList() {
     console.log("List:", this.list);
   }
@@ -50,6 +68,8 @@ list.append(4);
 list.insert(7, 2);
 list.insert(7, -2);
 list.insert(7, 8);
+
+list.delete(2);
 
 list.printList();
 
