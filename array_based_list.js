@@ -8,11 +8,7 @@ class LinkedList {
     return this.size === 0;
   }
 
-  getSize() {
-    return this.size;
-  }
-
-  getLength() {
+  length() {
     return this.size;
   }
 
@@ -33,9 +29,7 @@ list.add(2);
 list.add(3);
 list.add(4);
 
-console.log("List after adding elements:");
 list.printList();
 
 console.log("List empty:", list.isEmpty());
-console.log("List size after additions:", list.getSize());
-console.log("List length after additions:", list.getLength());
+console.log("List length:", list.length());
