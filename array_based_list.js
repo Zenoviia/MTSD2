@@ -1,23 +1,16 @@
-class ListNode {
-    constructor(value = null, next = null) {
-        this.value = value;
-        this.next = next;
-    }
-}
-
 class LinkedList {
-    constructor() {
-        this.head = null;
-        this.size = 0;
-    }
+  constructor() {
+    this.list = [];
+    this.size = 0;
+  }
 
-    isEmpty() {
-        return this.size === 0;
-    }
+  isEmpty() {
+    return this.size === 0;
+  }
 
-    getSize() {
-        return this.size;
-    }
+  getSize() {
+    return this.size;
+  }
 }
 
 const list = new LinkedList();
