@@ -12,7 +12,7 @@ class LinkedList {
     }
   }
 
-  add(value) {
+  append(value) {
     this.list.push(value);
     this.size++;
   }
@@ -24,10 +24,10 @@ class LinkedList {
 
 const list = new LinkedList();
 
-// list.add(1);
-// list.add(2);
-// list.add(3);
-// list.add(4);
+list.append(1);
+list.append(2);
+list.append(3);
+list.append(4);
 
 list.printList();
 
