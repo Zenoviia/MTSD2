@@ -18,6 +18,19 @@ class LinkedList {
   }
 
   insert(value, index) {
+    if (index < 0) {
+      console.log(
+        `Invalid index "${index}" for insert. Should be positive number.`
+      );
+      return;
+    }
+    if (index > this.size) {
+      console.log(
+        `Invalid index "${index}" for insert. Should be less then list length (${this.size}).`
+      );
+      return;
+    }
+
     this.list.splice(index, 0, value);
     this.size++;
   }
@@ -35,6 +48,8 @@ list.append(3);
 list.append(4);
 
 list.insert(7, 2);
+list.insert(7, -2);
+list.insert(7, 8);
 
 list.printList();
 
