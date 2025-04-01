@@ -53,6 +53,16 @@ class LinkedList {
     this.size--;
   }
 
+  deleteAll(value) {
+    let index = this.list.indexOf(value);
+
+    while (index !== -1) {
+      this.list.splice(index, 1);
+      this.size--;
+      index = this.list.indexOf(value);
+    }
+  }
+
   printList() {
     console.log("List:", this.list);
   }
@@ -63,14 +73,24 @@ const list = new LinkedList();
 list.append(1);
 list.append(2);
 list.append(3);
+list.append(2);
 list.append(4);
+list.append(2);
+list.append(2);
 
-list.insert(7, 2);
-list.insert(7, -2);
-list.insert(7, 8);
+// list.insert(7, 2);
+// list.insert(7, -2);
+// list.insert(7, 8);
 
-list.delete(2);
+// list.delete(2);
+// list.delete(-2);
+// list.delete(10);
 
 list.printList();
+console.log("List length:", list.length());
 
+list.deleteAll(2);
+list.deleteAll(5);
+
+list.printList();
 console.log("List length:", list.length());
