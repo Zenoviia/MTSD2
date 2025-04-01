@@ -17,6 +17,11 @@ class LinkedList {
     this.size++;
   }
 
+  insert(value, index) {
+    this.list.splice(index, 0, value);
+    this.size++;
+  }
+
   printList() {
     console.log("List:", this.list);
   }
@@ -28,6 +33,8 @@ list.append(1);
 list.append(2);
 list.append(3);
 list.append(4);
+
+list.insert(7, 2);
 
 list.printList();
 
