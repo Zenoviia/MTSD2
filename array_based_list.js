@@ -91,6 +91,15 @@ class LinkedList {
     this.list.reverse();
   }
 
+  findFirst(value) {
+    const index = this.list.indexOf(value);
+    if (index !== -1) {
+      return index;
+    } else {
+      return -1;
+    }
+  }
+
   printList() {
     console.log("List:", this.list);
   }
@@ -132,6 +141,12 @@ list.printList();
 // console.log("Copied list:");
 // copiedList.printList();
 
-list.reverse();
-console.log("Reversed list:");
-list.printList();
+// list.reverse();
+// console.log("Reversed list:");
+// list.printList();
+
+const firstIndex = list.findFirst(2);
+console.log(`First occurrence of 2:`, firstIndex);
+
+const notFoundIndex = list.findFirst(5);
+console.log(`First occurrence of 5:`, notFoundIndex);
