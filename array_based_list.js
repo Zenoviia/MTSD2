@@ -63,6 +63,23 @@ class LinkedList {
     }
   }
 
+  get(index) {
+    if (index < 0) {
+      console.log(
+        `Invalid index "${index}" for getting element. Should be positive number.`
+      );
+      return null;
+    }
+    if (index >= this.size) {
+      console.log(
+        `Invalid index "${index}" for getting element. Should be less than list length (${this.size}).`
+      );
+      return null;
+    }
+
+    return this.list[index];
+  }
+
   printList() {
     console.log("List:", this.list);
   }
@@ -89,8 +106,10 @@ list.append(2);
 list.printList();
 console.log("List length:", list.length());
 
-list.deleteAll(2);
-list.deleteAll(5);
+// list.deleteAll(2);
+// list.deleteAll(5);
 
-list.printList();
-console.log("List length:", list.length());
+console.log("Element at index 1:", list.get(0));
+
+// list.printList();
+// console.log("List length:", list.length());
