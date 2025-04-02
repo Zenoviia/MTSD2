@@ -80,6 +80,13 @@ class LinkedList {
     return this.list[index];
   }
 
+  clone() {
+    const newList = new LinkedList();
+    newList.list = [...this.list];
+    newList.size = this.size;
+    return newList;
+  }
+
   printList() {
     console.log("List:", this.list);
   }
@@ -103,13 +110,20 @@ list.append(2);
 // list.delete(-2);
 // list.delete(10);
 
-list.printList();
-console.log("List length:", list.length());
+// list.printList();
+// console.log("List length:", list.length());
 
 // list.deleteAll(2);
 // list.deleteAll(5);
 
-console.log("Element at index 1:", list.get(0));
+// console.log("Element at index 1:", list.get(0));
 
 // list.printList();
 // console.log("List length:", list.length());
+
+console.log("Original list:");
+list.printList();
+
+const copiedList = list.clone();
+console.log("Copied list:");
+copiedList.printList();
