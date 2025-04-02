@@ -87,6 +87,10 @@ class LinkedList {
     return newList;
   }
 
+  reverse() {
+    this.list.reverse();
+  }
+
   printList() {
     console.log("List:", this.list);
   }
@@ -124,6 +128,10 @@ list.append(2);
 console.log("Original list:");
 list.printList();
 
-const copiedList = list.clone();
-console.log("Copied list:");
-copiedList.printList();
+// const copiedList = list.clone();
+// console.log("Copied list:");
+// copiedList.printList();
+
+list.reverse();
+console.log("Reversed list:");
+list.printList();
