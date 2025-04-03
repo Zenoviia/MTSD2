@@ -1,4 +1,4 @@
-const LinkedList = require("./src/array_based_list");
+const LinkedList = require("../src/array_based_list");
 
 describe("LinkedList", () => {
   let list;
