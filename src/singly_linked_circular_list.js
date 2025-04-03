@@ -251,6 +251,19 @@ class CircularLinkedList {
     this.size = 0;
   }
 
+  extend(otherList) {
+    if (otherList.size === 0) {
+      return;
+    }
+
+    let current = otherList.head;
+
+    do {
+      this.append(current.value);
+      current = current.next;
+    } while (current !== otherList.head);
+  }
+
   printList() {
     if (this.size === 0) {
       console.log("List is empty");

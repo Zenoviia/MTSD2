@@ -86,12 +86,12 @@ listImplementations.forEach(({ name, createList }) => {
       expect(list.length()).toBe(0);
     });
 
-    // test("extend() should add all elements from another list", () => {
-    //   list.append(1);
-    //   list.extend([2, 3]);
-    //   expect(list.length()).toBe(3);
-    //   expect(list.get(1)).toBe(2);
-    // });
+    test("extend() should add all elements from another list", () => {
+      list.append(1);
+      list.extend([2, 3]);
+      expect(list.length()).toBe(3);
+      expect(list.get(1)).toBe(2);
+    });
 
     test("length() should return the correct length", () => {
       expect(list.length()).toBe(0);
