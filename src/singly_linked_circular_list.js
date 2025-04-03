@@ -251,17 +251,13 @@ class CircularLinkedList {
     this.size = 0;
   }
 
-  extend(otherList) {
-    if (otherList.size === 0) {
-      return;
+  extend(elements) {
+    if (!elements) return;
+
+    const elementsToAdd = [...elements];
+    for (const element of elementsToAdd) {
+      this.append(element);
     }
-
-    let current = otherList.head;
-
-    do {
-      this.append(current.value);
-      current = current.next;
-    } while (current !== otherList.head);
   }
 
   printList() {
@@ -351,5 +347,13 @@ list.clear();
 console.log("Cleared list:");
 list.printList();
 console.log("List length after clear operation:", list.length());
+
+const additionalList = [4, 5, 6];
+console.log("List for extending:", additionalList);
+list.extend(additionalList);
+
+console.log("Extended list:");
+list.printList();
+console.log("List length after extend operation:", list.length());
 
 module.exports = CircularLinkedList;
