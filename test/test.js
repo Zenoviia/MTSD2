@@ -80,11 +80,11 @@ listImplementations.forEach(({ name, createList }) => {
       expect(list.findLast(1)).toBe(2);
     });
 
-    // test("clear() should empty the list", () => {
-    //   list.append(1);
-    //   list.clear();
-    //   expect(list.length()).toBe(0);
-    // });
+    test("clear() should empty the list", () => {
+      list.append(1);
+      list.clear();
+      expect(list.length()).toBe(0);
+    });
 
     // test("extend() should add all elements from another list", () => {
     //   list.append(1);

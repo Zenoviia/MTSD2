@@ -245,6 +245,12 @@ class CircularLinkedList {
     return lastIndex;
   }
 
+  clear() {
+    this.head = null;
+    this.tail = null;
+    this.size = 0;
+  }
+
   printList() {
     if (this.size === 0) {
       console.log("List is empty");
@@ -327,5 +333,10 @@ const lastIndex5 = list.findLast(5);
 console.log(`Last occurrence of 'a':`, lastIndexA);
 console.log(`Last occurrence of 1:`, lastIndex1);
 console.log(`Last occurrence of 5:`, lastIndex5);
+
+list.clear();
+console.log("Cleared list:");
+list.printList();
+console.log("List length after clear operation:", list.length());
 
 module.exports = CircularLinkedList;
