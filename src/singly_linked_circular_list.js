@@ -109,6 +109,56 @@ class CircularLinkedList {
     this.size--;
   }
 
+  deleteAll(value) {
+    if (this.size === 0) {
+      console.log("List is empty");
+      return;
+    }
+
+    let current = this.head;
+    let previous = this.tail;
+    let count = 0;
+    let initialSize = this.size;
+
+    // Handle all deletions in one full circle
+    do {
+      if (current.value === value) {
+        // Case 1: Only one node
+        if (this.size === 1) {
+          this.head = null;
+          this.tail = null;
+          this.size = 0;
+          return;
+        }
+        // Case 2: Deleting head
+        else if (current === this.head) {
+          this.head = current.next;
+          this.tail.next = this.head;
+          current = this.head;
+          previous = this.tail;
+        }
+        // Case 3: Deleting any other node
+        else {
+          previous.next = current.next;
+          // If deleting tail
+          if (current === this.tail) {
+            this.tail = previous;
+          }
+          current = previous.next;
+        }
+        this.size--;
+      } else {
+        previous = current;
+        current = current.next;
+      }
+      count++;
+    } while (count < initialSize && this.size > 0);
+
+    if (this.size === initialSize) {
+      console.log(`No elements with value ${value} found in the list.`);
+    }
+  }
+
   printList() {
     if (this.size === 0) {
       console.log("List is empty");
@@ -158,5 +208,13 @@ list.delete(10);
 console.log("List after delete operation:");
 list.printList();
 console.log("List length after delete operation:", list.length());
+
+list.deleteAll(2);
+list.deleteAll("b");
+list.deleteAll(10);
+
+console.log("List after deleteAll operation:");
+list.printList();
+console.log("List length after deleteAll operation:", list.length());
 
 module.exports = CircularLinkedList;

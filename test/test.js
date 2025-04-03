@@ -39,14 +39,14 @@ listImplementations.forEach(({ name, createList }) => {
       expect(list.length()).toBe(2);
     });
 
-    // test("deleteAll() should remove all occurrences of a value", () => {
-    //   list.append(2);
-    //   list.append(2);
-    //   list.append(3);
-    //   list.deleteAll(2);
-    //   expect(list.length()).toBe(1);
-    //   expect(list.get(0)).toBe(3);
-    // });
+    test("deleteAll() should remove all occurrences of a value", () => {
+      list.append(2);
+      list.append(2);
+      list.append(3);
+      list.deleteAll(2);
+      expect(list.length()).toBe(1);
+      // expect(list.get(0)).toBe(3);
+    });
 
     // test("get() should retrieve element by index", () => {
     //   list.append(5);
