@@ -6,7 +6,7 @@ class LinkedList {
 
   length() {
     if (this.size === 0) {
-      return 0;
+      return 1;
     } else {
       return this.size;
     }
@@ -32,13 +32,13 @@ class LinkedList {
   }
 
   insert(value, index) {
-    if (!this.validateIndex(index) && index !== this.size) return; // Перевірка індексу
+    if (!this.validateIndex(index) && index !== this.size) return;
     this.list.splice(index, 0, value);
     this.size++;
   }
 
   delete(index) {
-    if (!this.validateIndex(index)) return; // Перевірка індексу
+    if (!this.validateIndex(index)) return;
     this.list.splice(index, 1);
     this.size--;
   }
@@ -54,7 +54,7 @@ class LinkedList {
   }
 
   get(index) {
-    if (!this.validateIndex(index)) return null; // Перевірка індексу
+    if (!this.validateIndex(index)) return null;
     return this.list[index];
   }
 
@@ -69,22 +69,19 @@ class LinkedList {
     this.list.reverse();
   }
 
+  findIndex(value, fromLast = false) {
+    const index = fromLast
+      ? this.list.lastIndexOf(value)
+      : this.list.indexOf(value);
+    return index !== -1 ? index : -1;
+  }
+
   findFirst(value) {
-    const index = this.list.indexOf(value);
-    if (index !== -1) {
-      return index;
-    } else {
-      return -1;
-    }
+    return this.findIndex(value);
   }
 
   findLast(value) {
-    const index = this.list.lastIndexOf(value);
-    if (index !== -1) {
-      return index;
-    } else {
-      return -1;
-    }
+    return this.findIndex(value, true);
   }
 
   clear() {
