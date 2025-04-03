@@ -124,71 +124,87 @@ class LinkedList {
   }
 
   printList() {
-    console.log("List:", this.list);
+    console.log(this.list);
   }
 }
 
 const list = new LinkedList();
 
+console.log("List length befor adding anything:", list.length());
+
 list.append(1);
 list.append(2);
-list.append(3);
+list.append("a");
+list.append("b");
+list.append(1);
 list.append(2);
-list.append(4);
+list.append("c");
 list.append(2);
-list.append(2);
+list.append("a");
 
-// list.insert(7, 2);
-// list.insert(7, -2);
-// list.insert(7, 8);
+console.log("Original list (after append):");
+list.printList();
+console.log("List length after append operation:", list.length());
 
-// list.delete(2);
-// list.delete(-2);
-// list.delete(10);
+list.insert(7, 2);
+list.insert("b", 8);
+list.insert(7, -2);
+list.insert("b", 12);
 
-// list.printList();
-// console.log("List length:", list.length());
+console.log("Original list (after insert):");
+list.printList();
+console.log("List length after insert operation:", list.length());
 
-// list.deleteAll(2);
-// list.deleteAll(5);
+list.delete(2);
+list.delete(-2);
+list.delete(10);
 
-// console.log("Element at index 1:", list.get(0));
+console.log("List after delete operation:");
+list.printList();
+console.log("List length after delete operation:", list.length());
 
-// list.printList();
-// console.log("List length:", list.length());
+list.deleteAll(2);
+list.deleteAll("b");
+list.deleteAll(10);
 
-console.log("Original list:");
+console.log("List after deleteAll operation:");
+list.printList();
+console.log("List length after deleteAll operation:", list.length());
+
+console.log("Element at index 0:", list.get(0));
+console.log("Element at index 3:", list.get(3));
+
+const copiedList = list.clone();
+console.log("Copied list:");
+copiedList.printList();
+
+list.reverse();
+console.log("Reversed list:");
 list.printList();
 
-// const copiedList = list.clone();
-// console.log("Copied list:");
-// copiedList.printList();
+const firstIndexA = list.findFirst("a");
+const firstIndex1 = list.findFirst(1);
+const firstIndex5 = list.findFirst(5);
+console.log(`First occurrence of 'a':`, firstIndexA);
+console.log(`First occurrence of 1:`, firstIndex1);
+console.log(`First occurrence of 5:`, firstIndex5);
 
-// list.reverse();
-// console.log("Reversed list:");
-// list.printList();
+const lastIndexA = list.findLast("a");
+const lastIndex1 = list.findLast(1);
+const lastIndex5 = list.findLast(5);
+console.log(`Last occurrence of 'a':`, lastIndexA);
+console.log(`Last occurrence of 1:`, lastIndex1);
+console.log(`Last occurrence of 5:`, lastIndex5);
 
-// const firstIndex = list.findFirst(2);
-// const lastIndex = list.findLast(2);
-
-// console.log(`First occurrence of 2:`, firstIndex);
-// console.log(`Last occurrence of 2:`, lastIndex);
-
-// const notFoundIndex = list.findFirst(5);
-// const notFoundIndex2 = list.findLast(5);
-
-// console.log(`First occurrence of 5:`, notFoundIndex);
-// console.log(`Last occurrence of 5:`, notFoundIndex2);
-
-// list.clear();
-// console.log("Cleared list");
-// list.printList();
-// console.log("List length after clearing:", list.length());
+list.clear();
+console.log("Cleared list:");
+list.printList();
+console.log("List length after clear operation:", list.length());
 
 const additionalList = [4, 5, 6];
-console.log("Extending with:", additionalList);
+console.log("List for extending:", additionalList);
 list.extend(additionalList);
 
 console.log("Extended list:");
 list.printList();
-console.log("List length after extending:", list.length());
+console.log("List length after extend operation:", list.length());
