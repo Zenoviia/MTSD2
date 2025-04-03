@@ -53,12 +53,12 @@ listImplementations.forEach(({ name, createList }) => {
       expect(list.get(0)).toBe(5);
     });
 
-    // test("clone() should create an identical list", () => {
-    //   list.append(1);
-    //   const cloned = list.clone();
-    //   expect(cloned.get(0)).toBe(1);
-    //   expect(cloned.length()).toBe(1);
-    // });
+    test("clone() should create an identical list", () => {
+      list.append(1);
+      const cloned = list.clone();
+      expect(cloned.get(0)).toBe(1);
+      expect(cloned.length()).toBe(1);
+    });
 
     // test("reverse() should reverse the list", () => {
     //   list.append(1);

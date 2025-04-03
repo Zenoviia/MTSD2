@@ -168,6 +168,23 @@ class CircularLinkedList {
     return current.value;
   }
 
+  clone() {
+    if (this.size === 0) {
+      console.log("List is empty");
+      return new CircularLinkedList();
+    }
+
+    const newList = new CircularLinkedList();
+    let current = this.head;
+
+    do {
+      newList.append(current.value);
+      current = current.next;
+    } while (current !== this.head);
+
+    return newList;
+  }
+
   printList() {
     if (this.size === 0) {
       console.log("List is empty");
@@ -228,5 +245,9 @@ console.log("List length after deleteAll operation:", list.length());
 
 console.log("Element at index 0:", list.get(0));
 console.log("Element at index 3:", list.get(3));
+
+const copiedList = list.clone();
+console.log("Copied list:");
+copiedList.printList();
 
 module.exports = CircularLinkedList;
