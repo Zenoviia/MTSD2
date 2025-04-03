@@ -122,43 +122,16 @@ class CircularLinkedList {
       console.log("List is empty");
       return;
     }
-
-    let current = this.head;
-    let previous = this.tail;
-    let count = 0;
-    let initialSize = this.size;
-
-    do {
-      if (current.value === value) {
-        if (this.size === 1) {
-          this.head = null;
-          this.tail = null;
-          this.size = 0;
-          return;
-        } else if (current === this.head) {
-          this.head = current.next;
-          this.tail.next = this.head;
-          current = this.head;
-          previous = this.tail;
-        } else {
-          previous.next = current.next;
-          if (current === this.tail) {
-            this.tail = previous;
-          }
-          current = previous.next;
-        }
-        this.size--;
-      } else {
-        previous = current;
-        current = current.next;
-      }
-      count++;
-    } while (count < initialSize && this.size > 0);
-
-    if (this.size === initialSize) {
-      console.log(`No elements with value ${value} found in the list.`);
+  
+    let index = this.findFirst(value);
+    while (index !== -1) {
+      this.delete(index);
+      index = this.findFirst(value);
     }
+  
+    console.log(`All elements with value "${value}" have been deleted.`);
   }
+  
 
   get(index) {
     if (!this.validateIndex(index)) return null;
