@@ -154,10 +154,6 @@ class CircularLinkedList {
       }
       count++;
     } while (count < initialSize && this.size > 0);
-
-    if (this.size === initialSize) {
-      console.log(`No elements with value ${value} found in the list.`);
-    }
   }
 
   get(index) {
