@@ -73,12 +73,12 @@ listImplementations.forEach(({ name, createList }) => {
       expect(list.findFirst(2)).toBe(1);
     });
 
-    // test("findLast() should find the last occurrence of a value", () => {
-    //   list.append(1);
-    //   list.append(2);
-    //   list.append(1);
-    //   expect(list.findLast(1)).toBe(2);
-    // });
+    test("findLast() should find the last occurrence of a value", () => {
+      list.append(1);
+      list.append(2);
+      list.append(1);
+      expect(list.findLast(1)).toBe(2);
+    });
 
     // test("clear() should empty the list", () => {
     //   list.append(1);
