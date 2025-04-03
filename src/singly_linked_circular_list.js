@@ -12,6 +12,10 @@ class CircularLinkedList {
     this.size = 0;
   }
 
+  length() {
+    return this.size;
+  }
+
   append(value) {
     const newNode = new Node(value);
 
@@ -28,15 +32,22 @@ class CircularLinkedList {
     this.size++;
   }
 
-  length() {
-    return this.size;
+  validateIndex(index) {
+    if (index < 0) {
+      console.log(`Invalid index "${index}". Should be positive number.`);
+      return false;
+    }
+    if (index >= this.size) {
+      console.log(
+        `Invalid index "${index}". Should be less than list length (${this.size}).`
+      );
+      return false;
+    }
+    return true;
   }
 
   insert(value, index) {
-    if (index < 0 || index > this.size) {
-      console.log("Invalid index");
-      return;
-    }
+    if (!this.validateIndex(index) && index !== this.size) return;
 
     const newNode = new Node(value);
 
@@ -72,10 +83,7 @@ class CircularLinkedList {
   }
 
   delete(index) {
-    if (index < 0 || index >= this.size) {
-      console.log("Invalid index");
-      return;
-    }
+    if (!this.validateIndex(index)) return;
 
     if (index === 0) {
       if (this.size === 1) {
@@ -153,9 +161,7 @@ class CircularLinkedList {
   }
 
   get(index) {
-    if (index < 0 || index >= this.size) {
-      throw new Error("Invalid index");
-    }
+    if (!this.validateIndex(index)) return null;
 
     let current = this.head;
     let count = 0;
