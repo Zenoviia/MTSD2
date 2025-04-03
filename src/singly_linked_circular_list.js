@@ -32,6 +32,45 @@ class CircularLinkedList {
     return this.size;
   }
 
+  insert(value, index) {
+    if (index < 0 || index > this.size) {
+      console.log("Invalid index");
+      return;
+    }
+
+    const newNode = new Node(value);
+
+    if (index === 0) {
+      if (this.size === 0) {
+        this.head = newNode;
+        this.tail = newNode;
+        newNode.next = this.head;
+      } else {
+        newNode.next = this.head;
+        this.head = newNode;
+        this.tail.next = this.head;
+      }
+    } else if (index === this.size) {
+      this.append(value);
+      return;
+    } else {
+      let current = this.head;
+      let previous;
+      let count = 0;
+
+      while (count < index) {
+        previous = current;
+        current = current.next;
+        count++;
+      }
+
+      previous.next = newNode;
+      newNode.next = current;
+    }
+
+    this.size++;
+  }
+
   printList() {
     if (this.size === 0) {
       console.log("List is empty");
@@ -64,5 +103,14 @@ list.append("a");
 console.log("Original list (after append):");
 list.printList();
 console.log("List length after append operation:", list.length());
+
+list.insert(7, 2);
+list.insert("b", 8);
+list.insert(7, -2);
+list.insert("b", 12);
+
+console.log("Original list (after insert):");
+list.printList();
+console.log("List length after insert operation:", list.length());
 
 module.exports = CircularLinkedList;
