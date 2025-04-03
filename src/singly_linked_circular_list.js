@@ -28,6 +28,10 @@ class CircularLinkedList {
     this.size++;
   }
 
+  length() {
+    return this.size;
+  }
+
   printList() {
     if (this.size === 0) {
       console.log("List is empty");
@@ -59,5 +63,6 @@ list.append("a");
 
 console.log("Original list (after append):");
 list.printList();
+console.log("List length after append operation:", list.length());
 
 module.exports = CircularLinkedList;

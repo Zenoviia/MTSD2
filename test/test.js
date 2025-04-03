@@ -17,7 +17,7 @@ listImplementations.forEach(({ name, createList }) => {
     test("append() should add elements to the list", () => {
       list.append(1);
       list.append(2);
-      // expect(list.length()).toBe(2);
+      expect(list.length()).toBe(2);
       // expect(list.get(0)).toBe(1);
       // expect(list.get(1)).toBe(2);
     });
@@ -93,11 +93,11 @@ listImplementations.forEach(({ name, createList }) => {
     //   expect(list.get(1)).toBe(2);
     // });
 
-    // test("length() should return the correct length", () => {
-    //   expect(list.length()).toBe(0);
-    //   list.append(1);
-    //   expect(list.length()).toBe(1);
-    // });
+    test("length() should return the correct length", () => {
+      expect(list.length()).toBe(0);
+      list.append(1);
+      expect(list.length()).toBe(1);
+    });
 
     test("printList() should output the list", () => {
       console.log = jest.fn();
