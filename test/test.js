@@ -22,13 +22,13 @@ listImplementations.forEach(({ name, createList }) => {
       // expect(list.get(1)).toBe(2);
     });
 
-    // test("insert() should add elements to the list at specified index", () => {
-    //   list.append(1);
-    //   list.append(2);
-    //   list.insert(3, 1);
-    //   expect(list.get(1)).toBe(3);
-    //   expect(list.length()).toBe(3);
-    // });
+    test("insert() should add elements to the list at specified index", () => {
+      list.append(1);
+      list.append(2);
+      list.insert(3, 1);
+      // expect(list.get(1)).toBe(3);
+      expect(list.length()).toBe(3);
+    });
 
     // test("delete() should remove elements by index", () => {
     //   list.append(1);
