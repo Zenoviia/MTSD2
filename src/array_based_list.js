@@ -49,6 +49,7 @@ class LinkedList {
     while (index !== -1) {
       this.list.splice(index, 1);
       this.size--;
+      index = this.list.indexOf(value);
     }
   }
 
