@@ -30,14 +30,14 @@ listImplementations.forEach(({ name, createList }) => {
       expect(list.length()).toBe(3);
     });
 
-    // test("delete() should remove elements by index", () => {
-    //   list.append(1);
-    //   list.append(2);
-    //   list.append(3);
-    //   list.delete(1);
-    //   expect(list.get(1)).toBe(3);
-    //   expect(list.length()).toBe(2);
-    // });
+    test("delete() should remove elements by index", () => {
+      list.append(1);
+      list.append(2);
+      list.append(3);
+      list.delete(1);
+      // expect(list.get(1)).toBe(3);
+      expect(list.length()).toBe(2);
+    });
 
     // test("deleteAll() should remove all occurrences of a value", () => {
     //   list.append(2);

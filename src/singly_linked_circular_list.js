@@ -71,6 +71,44 @@ class CircularLinkedList {
     this.size++;
   }
 
+  delete(index) {
+    if (index < 0 || index >= this.size) {
+      console.log("Invalid index");
+      return;
+    }
+
+    if (index === 0) {
+      if (this.size === 1) {
+        this.head = null;
+        this.tail = null;
+      } else {
+        this.head = this.head.next;
+        this.tail.next = this.head;
+      }
+    } else if (index === this.size - 1) {
+      let current = this.head;
+      while (current.next !== this.tail) {
+        current = current.next;
+      }
+      current.next = this.head;
+      this.tail = current;
+    } else {
+      let current = this.head;
+      let previous;
+      let count = 0;
+
+      while (count < index) {
+        previous = current;
+        current = current.next;
+        count++;
+      }
+
+      previous.next = current.next;
+    }
+
+    this.size--;
+  }
+
   printList() {
     if (this.size === 0) {
       console.log("List is empty");
@@ -112,5 +150,13 @@ list.insert("b", 12);
 console.log("Original list (after insert):");
 list.printList();
 console.log("List length after insert operation:", list.length());
+
+list.delete(2);
+list.delete(-2);
+list.delete(10);
+
+console.log("List after delete operation:");
+list.printList();
+console.log("List length after delete operation:", list.length());
 
 module.exports = CircularLinkedList;
