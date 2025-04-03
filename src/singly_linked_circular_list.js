@@ -192,7 +192,7 @@ class CircularLinkedList {
   }
 
   reverse() {
-    if (this.size <= 1) {
+    if (!this.head || this.head.next === this.head) {
       return;
     }
 
