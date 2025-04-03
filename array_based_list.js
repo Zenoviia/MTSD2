@@ -114,6 +114,15 @@ class LinkedList {
     this.size = 0;
   }
 
+  extend(elements) {
+    if (!Array.isArray(elements)) {
+      console.log("Invalid input. Please provide an array.");
+      return;
+    }
+    this.list = [...this.list, ...elements];
+    this.size = this.list.length;
+  }
+
   printList() {
     console.log("List:", this.list);
   }
@@ -171,7 +180,15 @@ list.printList();
 // console.log(`First occurrence of 5:`, notFoundIndex);
 // console.log(`Last occurrence of 5:`, notFoundIndex2);
 
-list.clear();
-console.log("Cleared list");
+// list.clear();
+// console.log("Cleared list");
+// list.printList();
+// console.log("List length after clearing:", list.length());
+
+const additionalList = [4, 5, 6];
+console.log("Extending with:", additionalList);
+list.extend(additionalList);
+
+console.log("Extended list:");
 list.printList();
-console.log("List length after clearing:", list.length());
+console.log("List length after extending:", list.length());
