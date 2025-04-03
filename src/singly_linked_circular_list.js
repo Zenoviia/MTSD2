@@ -264,7 +264,7 @@ class CircularLinkedList {
 
   printList() {
     if (this.size === 0) {
-      console.log("List is empty");
+      console.log("[]");
       return;
     }
 
@@ -280,6 +280,8 @@ class CircularLinkedList {
 }
 
 const list = new CircularLinkedList();
+
+console.log("List length befor adding anything:", list.length());
 
 list.append(1);
 list.append(2);
