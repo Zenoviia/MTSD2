@@ -6,7 +6,7 @@ class LinkedList {
 
   length() {
     if (this.size === 0) {
-      return 1;
+      return 0;
     } else {
       return this.size;
     }
