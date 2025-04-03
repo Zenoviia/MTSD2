@@ -120,27 +120,20 @@ class CircularLinkedList {
     let count = 0;
     let initialSize = this.size;
 
-    // Handle all deletions in one full circle
     do {
       if (current.value === value) {
-        // Case 1: Only one node
         if (this.size === 1) {
           this.head = null;
           this.tail = null;
           this.size = 0;
           return;
-        }
-        // Case 2: Deleting head
-        else if (current === this.head) {
+        } else if (current === this.head) {
           this.head = current.next;
           this.tail.next = this.head;
           current = this.head;
           previous = this.tail;
-        }
-        // Case 3: Deleting any other node
-        else {
+        } else {
           previous.next = current.next;
-          // If deleting tail
           if (current === this.tail) {
             this.tail = previous;
           }
@@ -157,6 +150,22 @@ class CircularLinkedList {
     if (this.size === initialSize) {
       console.log(`No elements with value ${value} found in the list.`);
     }
+  }
+
+  get(index) {
+    if (index < 0 || index >= this.size) {
+      throw new Error("Invalid index");
+    }
+
+    let current = this.head;
+    let count = 0;
+
+    while (count < index) {
+      current = current.next;
+      count++;
+    }
+
+    return current.value;
   }
 
   printList() {
@@ -216,5 +225,8 @@ list.deleteAll(10);
 console.log("List after deleteAll operation:");
 list.printList();
 console.log("List length after deleteAll operation:", list.length());
+
+console.log("Element at index 0:", list.get(0));
+console.log("Element at index 3:", list.get(3));
 
 module.exports = CircularLinkedList;

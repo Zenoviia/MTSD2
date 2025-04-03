@@ -18,15 +18,15 @@ listImplementations.forEach(({ name, createList }) => {
       list.append(1);
       list.append(2);
       expect(list.length()).toBe(2);
-      // expect(list.get(0)).toBe(1);
-      // expect(list.get(1)).toBe(2);
+      expect(list.get(0)).toBe(1);
+      expect(list.get(1)).toBe(2);
     });
 
     test("insert() should add elements to the list at specified index", () => {
       list.append(1);
       list.append(2);
       list.insert(3, 1);
-      // expect(list.get(1)).toBe(3);
+      expect(list.get(1)).toBe(3);
       expect(list.length()).toBe(3);
     });
 
@@ -35,7 +35,7 @@ listImplementations.forEach(({ name, createList }) => {
       list.append(2);
       list.append(3);
       list.delete(1);
-      // expect(list.get(1)).toBe(3);
+      expect(list.get(1)).toBe(3);
       expect(list.length()).toBe(2);
     });
 
@@ -45,13 +45,13 @@ listImplementations.forEach(({ name, createList }) => {
       list.append(3);
       list.deleteAll(2);
       expect(list.length()).toBe(1);
-      // expect(list.get(0)).toBe(3);
+      expect(list.get(0)).toBe(3);
     });
 
-    // test("get() should retrieve element by index", () => {
-    //   list.append(5);
-    //   expect(list.get(0)).toBe(5);
-    // });
+    test("get() should retrieve element by index", () => {
+      list.append(5);
+      expect(list.get(0)).toBe(5);
+    });
 
     // test("clone() should create an identical list", () => {
     //   list.append(1);
