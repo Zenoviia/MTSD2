@@ -208,3 +208,5 @@ list.extend(additionalList);
 console.log("Extended list:");
 list.printList();
 console.log("List length after extend operation:", list.length());
+
+module.exports = LinkedList;
