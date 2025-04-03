@@ -206,6 +206,25 @@ class CircularLinkedList {
     this.tail.next = this.head;
   }
 
+  findFirst(element) {
+    if (this.size === 0) {
+      return -1;
+    }
+
+    let current = this.head;
+    let index = 0;
+
+    do {
+      if (current.value === element) {
+        return index;
+      }
+      current = current.next;
+      index++;
+    } while (current !== this.head);
+
+    return -1;
+  }
+
   printList() {
     if (this.size === 0) {
       console.log("List is empty");
@@ -274,5 +293,12 @@ copiedList.printList();
 list.reverse();
 console.log("Reversed list:");
 list.printList();
+
+const firstIndexA = list.findFirst("a");
+const firstIndex1 = list.findFirst(1);
+const firstIndex5 = list.findFirst(5);
+console.log(`First occurrence of 'a':`, firstIndexA);
+console.log(`First occurrence of 1:`, firstIndex1);
+console.log(`First occurrence of 5:`, firstIndex5);
 
 module.exports = CircularLinkedList;
