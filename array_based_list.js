@@ -109,6 +109,11 @@ class LinkedList {
     }
   }
 
+  clear() {
+    this.list = [];
+    this.size = 0;
+  }
+
   printList() {
     console.log("List:", this.list);
   }
@@ -154,14 +159,19 @@ list.printList();
 // console.log("Reversed list:");
 // list.printList();
 
-const firstIndex = list.findFirst(2);
-const lastIndex = list.findLast(2);
+// const firstIndex = list.findFirst(2);
+// const lastIndex = list.findLast(2);
 
 // console.log(`First occurrence of 2:`, firstIndex);
-console.log(`Last occurrence of 2:`, lastIndex);
+// console.log(`Last occurrence of 2:`, lastIndex);
 
 // const notFoundIndex = list.findFirst(5);
-const notFoundIndex2 = list.findLast(5);
+// const notFoundIndex2 = list.findLast(5);
 
 // console.log(`First occurrence of 5:`, notFoundIndex);
-console.log(`Last occurrence of 5:`, notFoundIndex2);
+// console.log(`Last occurrence of 5:`, notFoundIndex2);
+
+list.clear();
+console.log("Cleared list");
+list.printList();
+console.log("List length after clearing:", list.length());
