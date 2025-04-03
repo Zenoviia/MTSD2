@@ -100,6 +100,15 @@ class LinkedList {
     }
   }
 
+  findLast(value) {
+    const index = this.list.lastIndexOf(value);
+    if (index !== -1) {
+      return index;
+    } else {
+      return -1;
+    }
+  }
+
   printList() {
     console.log("List:", this.list);
   }
@@ -146,7 +155,13 @@ list.printList();
 // list.printList();
 
 const firstIndex = list.findFirst(2);
-console.log(`First occurrence of 2:`, firstIndex);
+const lastIndex = list.findLast(2);
 
-const notFoundIndex = list.findFirst(5);
-console.log(`First occurrence of 5:`, notFoundIndex);
+// console.log(`First occurrence of 2:`, firstIndex);
+console.log(`Last occurrence of 2:`, lastIndex);
+
+// const notFoundIndex = list.findFirst(5);
+const notFoundIndex2 = list.findLast(5);
+
+// console.log(`First occurrence of 5:`, notFoundIndex);
+console.log(`Last occurrence of 5:`, notFoundIndex2);
