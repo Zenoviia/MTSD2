@@ -17,38 +17,28 @@ class LinkedList {
     this.size++;
   }
 
-  insert(value, index) {
+  validateIndex(index) {
     if (index < 0) {
-      console.log(
-        `Invalid index "${index}" for insert. Should be positive number.`
-      );
-      return;
+      console.log(`Invalid index "${index}". Should be positive number.`);
+      return false;
     }
-    if (index > this.size) {
+    if (index >= this.size) {
       console.log(
-        `Invalid index "${index}" for insert. Should be less then list length (${this.size}).`
+        `Invalid index "${index}". Should be less than list length (${this.size}).`
       );
-      return;
+      return false;
     }
+    return true;
+  }
 
+  insert(value, index) {
+    if (!this.validateIndex(index) && index !== this.size) return; // Перевірка індексу
     this.list.splice(index, 0, value);
     this.size++;
   }
 
   delete(index) {
-    if (index < 0) {
-      console.log(
-        `Invalid index "${index}" for removing. Should be positive number.`
-      );
-      return;
-    }
-    if (index > this.size) {
-      console.log(
-        `Invalid index "${index}" for removing. Should be less then list length (${this.size}).`
-      );
-      return;
-    }
-
+    if (!this.validateIndex(index)) return; // Перевірка індексу
     this.list.splice(index, 1);
     this.size--;
   }
@@ -59,24 +49,11 @@ class LinkedList {
     while (index !== -1) {
       this.list.splice(index, 1);
       this.size--;
-      index = this.list.indexOf(value);
     }
   }
 
   get(index) {
-    if (index < 0) {
-      console.log(
-        `Invalid index "${index}" for getting element. Should be positive number.`
-      );
-      return null;
-    }
-    if (index >= this.size) {
-      console.log(
-        `Invalid index "${index}" for getting element. Should be less than list length (${this.size}).`
-      );
-      return null;
-    }
-
+    if (!this.validateIndex(index)) return null; // Перевірка індексу
     return this.list[index];
   }
 
