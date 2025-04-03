@@ -60,12 +60,12 @@ listImplementations.forEach(({ name, createList }) => {
       expect(cloned.length()).toBe(1);
     });
 
-    // test("reverse() should reverse the list", () => {
-    //   list.append(1);
-    //   list.append(2);
-    //   list.reverse();
-    //   expect(list.get(0)).toBe(2);
-    // });
+    test("reverse() should reverse the list", () => {
+      list.append(1);
+      list.append(2);
+      list.reverse();
+      expect(list.get(0)).toBe(2);
+    });
 
     // test("findFirst() should find the first occurrence of a value", () => {
     //   list.append(1);

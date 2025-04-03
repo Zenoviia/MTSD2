@@ -185,6 +185,27 @@ class CircularLinkedList {
     return newList;
   }
 
+  reverse() {
+    if (this.size <= 1) {
+      return;
+    }
+
+    let current = this.head;
+    let prev = null;
+    let next = null;
+
+    do {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    } while (current !== this.head);
+
+    this.tail = this.head;
+    this.head = prev;
+    this.tail.next = this.head;
+  }
+
   printList() {
     if (this.size === 0) {
       console.log("List is empty");
@@ -249,5 +270,9 @@ console.log("Element at index 3:", list.get(3));
 const copiedList = list.clone();
 console.log("Copied list:");
 copiedList.printList();
+
+list.reverse();
+console.log("Reversed list:");
+list.printList();
 
 module.exports = CircularLinkedList;
